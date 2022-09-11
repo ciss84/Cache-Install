@@ -161,10 +161,8 @@ static inline __attribute__((always_inline)) void writeCr0(uint64_t cr0) {
 #define tid_macro(x)                                                        \
   kernel_base = &((uint8_t *)__readmsr(0xC0000082))[-K##x##_XFAST_SYSCALL]; \
   kernel_ptr = (uint8_t *)kernel_base;                                      \
-  tid_patch = &kernel_ptr[K##x##_TARGET_ID];                                \
-  tid_patch_2 = &kernel_ptr[K##x##_TARGET_ID_2];                            \
-  tid_patch_3 = &kernel_ptr[K##x##_SDK_VERSION_PATCH];
-  
+  tid_patch = &kernel_ptr[K##x##_TARGET_ID];
+
 #define icc_nvs_write_macro(x)                                              \
   kernel_base = &((uint8_t *)__readmsr(0xC0000082))[-K##x##_XFAST_SYSCALL]; \
   icc_nvs_write = (void *)(kernel_base + K##x##_ICC_NVS_WRITE);
