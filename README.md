@@ -1,5 +1,7 @@
 # Cache-Install
 
+Update just MAKE for compil and possibel add fw in fw-defines.h
+
 payload to (re)install <b>ApplicationCache.db</b> to the ps4.
 
 the payload will look for a file called <b>ApplicationCache.db</b> on the root of a usb drive and install it to the console.
