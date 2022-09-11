@@ -241,10 +241,12 @@ int kpayload_target_id(struct thread *td, struct kpayload_target_id_args *args) 
 
   uint8_t *kmem;
   uint8_t *tid_patch;
-
+  uint8_t *tid_patch_2;
+  uint8_t *tid_patch_3;  
+  
   uint16_t fw_version = args->kpayload_target_id_info->fw_version;
   uint8_t spoof = args->kpayload_target_id_info->spoof;
-
+  
   // NOTE: This is a C preprocessor macro
   build_kpayload(fw_version, tid_macro);
 
@@ -253,7 +255,12 @@ int kpayload_target_id(struct thread *td, struct kpayload_target_id_args *args) 
 
   kmem = (uint8_t *)tid_patch;
   kmem[0] = spoof;
-
+  kmem = (uint8_t *)tid_patch_2;
+  kmem[0] = spoof;
+  kmem = (uint8_t *)tid_patch_3;
+  kmem[2] = 0x03;  
+  kmem[3] = 0x09;
+                    
   writeCr0(cr0);
 
   return 0;

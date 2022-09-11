@@ -32,7 +32,7 @@ void shutdown();
 #define printf_notification(...)                                                                         \
   do {                                                                                                   \
     SceNotificationRequest noti_buffer;                                                                  \
-    char icon_uri[38] = "cxml://psnotification/tex_icon_system";                                         \
+    char icon_uri[50] = "cxml://psnotification/tex_morpheus_trophy_platinum";                                         \
     noti_buffer.type = 0;                                                                                \
     noti_buffer.unk3 = 0;                                                                                \
     noti_buffer.use_icon_image_uri = 1;                                                                  \

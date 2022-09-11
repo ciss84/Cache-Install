@@ -1,7 +1,5 @@
 #include "ps4.h"
-#include "fw_defines.h"
-#include "payload_utils.h"
-#include "debug.h"
+#include "patch.h"
 #include "ApplicationCache.h"
 
 void writeCacheDB()
@@ -15,19 +13,18 @@ write(fid, fbuf, len);
 close(fid);
 free(fbuf);
 sceKernelSleep(3);
-printf_notification("Cache 84Ciss - install Complete\n\nBookmark:\nhttps://mugiwara-v2.github.io/cachev9/index.html");
+printf_notification("Cache 84Ciss - install Complete\n\nBookmark:\nhttps://mugiwara-v2.github.io/host-v6/index.html");
 sceKernelSleep(1);
-openBrowser("https://mugiwara-v2.github.io/cachev9/index.html");
+openBrowser("https://mugiwara-v2.github.io/host-v6/index.html");
 }else{
 printf_notification("ERROR:\nNo 84Ciss - internal cache found");
 }
 }
 int _main(struct thread *td) {
-UNUSED(td);
-jailbreak();
-initKernel();
-initLibc();
-initSysUtil();
+	initKernel();
+	initLibc();
+	syscall(11,patcher,td);
+	initSysUtil();
 if (!dir_exists("/user/system/webkit/webbrowser/appcache"))
 {
 mkdir ("/user/system/webkit/webbrowser/appcache", 0777);
