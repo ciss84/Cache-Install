@@ -10,7 +10,7 @@ using the basic install you can access the landing page through the ps4 <b>user 
 
 if you already have another offline cache installed you can back that up using the <a href=https://github.com/stooged/DB_SG_Backup-50X>DB_SG_Backup</a> payload and place the <b>ApplicationCache.db</b> from that backup on the root of a usb drive and use this payload to reinstall it if you have to delete the browser data or lose it for any reason.
 
-# Update add Sdk for all fw 
+# Update add Sdk for all fw works on 9.00 
 for use just MAKE and possibel add fw in include/fw_defines.h
 
 
